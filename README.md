@@ -26,7 +26,7 @@ This is a simple yet powerful web app built with **Streamlit** and **OpenAI GPT-
 
 ### 1. Clone the repo
 
-git clone https://github.com/yourusername/scam-email-detector.git
+git clone https://github.com/Vincentansel12/scam-email-detector.git
 cd scam-email-detector 
 
 ### 2. Install dependencies
