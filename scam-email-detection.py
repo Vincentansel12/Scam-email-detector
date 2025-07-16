@@ -1,11 +1,9 @@
 import openai
 import streamlit as st
 import os
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Load API key from Streamlit Secrets
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # Streamlit UI
 st.set_page_config(page_title="Scam Email Detector", page_icon="🕵️‍♂️")
