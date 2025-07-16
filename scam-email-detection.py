@@ -18,14 +18,24 @@ if st.button("Check if Scam"):
         prompt = f"""
 You are a scam email detection expert.
 
-Analyze the email below carefully and determine if it's a scam or not.
+Carefully analyze the email below and determine if it is a scam or not. 
 
-Give your judgment in one sentence **starting with**:
-- "Yes, this is a scam because ..." OR
-- "No, this is not a scam because ..." OR
+Use multiple signals in combination — do **not** flag an email as a scam just because it contains a shortened URL.
+
+Instead, consider these factors:
+- Does it create urgency (e.g., tight deadlines, “must act now”)?
+- Does it ask for personal information (name, ID, bank details, CV)?
+- Is the sender's identity or email domain unverifiable or suspicious?
+- Is there a shortened URL **combined** with a request to click or submit data?
+- Is the language generic, overly formal, or lacking clear contact details?
+- Does the email mimic a legitimate brand but fail to use official domain names?
+
+Make your judgment in **one sentence**, starting with one of:
+- "Yes, this is a scam because ..."
+- "No, this is not a scam because ..."
 - "It is unclear if this is a scam because ..."
 
-Be especially cautious of shortened URLs (like bit.ly), urgent deadlines, requests to click links, or any attempt to collect personal data.
+Be especially careful with emails requesting data submission via shortened links, or that appear to impersonate well-known companies.
 
 Here is the email:
 {email_text}
