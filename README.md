@@ -64,10 +64,3 @@ Scam Email: Message asking for urgent data input via shortlink (e.g., bit.ly)
 📌 Disclaimer
 
 This tool provides AI-based support for scam detection but is not a replacement for human judgment. Always verify suspicious emails independently.
-
-🧑‍💻 Author
-
-Vincentius Ansel Suppa
-Data Science Master's Student @ University of Sydney
-GitHub: Vincentansel12
-LinkedIn: linkedin.com/in/vincentiusansel/
