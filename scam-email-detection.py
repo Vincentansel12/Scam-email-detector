@@ -1,19 +1,16 @@
-import openai
 import streamlit as st
-import os
+from openai import OpenAI
 
-# Load API key from Streamlit Secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]
-
-# Streamlit UI
+# Set up Streamlit UI
 st.set_page_config(page_title="Scam Email Detector", page_icon="🕵️‍♂️")
 st.title("🕵️‍♂️ Scam Email Detector")
 st.write("Paste your email below:")
 
+# Text input
 email_text = st.text_area("", height=300)
 submit = st.button("Check if Scam")
 
-# Prompt template with reasoning steps
+# Prompt logic
 prompt_template = f"""
 You are a scam email detection expert.
 
@@ -35,16 +32,19 @@ Here is the email:
 \"\"\"{email_text}\"\"\"
 """
 
+# Handle submission
 if submit and email_text.strip() != "":
     with st.spinner("Analyzing..."):
         try:
-            response = openai.ChatCompletion.create(
+            client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+            response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[{"role": "user", "content": prompt_template}],
                 temperature=0
             )
 
-            output = response['choices'][0]['message']['content'].strip()
+            output = response.choices[0].message.content.strip()
 
             if output.lower().startswith("yes, this is a scam"):
                 st.error(f"🔴 Result: {output}")
