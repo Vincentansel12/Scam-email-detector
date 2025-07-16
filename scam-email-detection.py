@@ -12,23 +12,26 @@ submit = st.button("Check if Scam")
 
 # Prompt logic
 prompt_template = f"""
-You are a scam email detection expert.
+You are an expert in scam email detection.
 
-Analyze the email below carefully and determine if it's a scam or not.
+Your task is to analyze the email content below and determine whether it is a scam or not.
 
-Follow this process:
-1. Check if there is urgency or pressure.
-2. Check if there is a request for personal data or links to unknown websites.
-3. Check if the sender domain is verifiable or suspicious.
-4. Check if any shortened URLs are used with unclear purpose.
-5. Consider if the message aligns with typical scam patterns.
+Please follow these steps in your reasoning:
 
-Then summarize your conclusion in **one sentence** that starts with one of the following:
+1. Ignore any repeated legal disclaimers or email footer signatures.
+2. Focus on signs of psychological pressure or urgency (e.g., "immediately", "or else", "final warning").
+3. Identify requests for personal credentials or sensitive actions (e.g., filling forms, uploading data, making payments).
+4. Examine the use of shortened URLs (e.g., bit.ly, tinyurl), but consider their context. For example, Zoom or attendance links from known institutions may be legitimate.
+5. Assess the sender's language, grammar, professionalism, and whether it aligns with typical scam patterns.
+6. Consider if the content sounds credible coming from a professional organization or institution.
+
+Finally, write a **clear and concise one-sentence judgment** using one of the following formats:
+
 - "Yes, this is a scam because ..."
 - "No, this is not a scam because ..."
 - "It is unclear if this is a scam because ..."
 
-Here is the email:
+Email content to analyze:
 \"\"\"{email_text}\"\"\"
 """
 
