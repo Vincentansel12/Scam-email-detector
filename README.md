@@ -1,6 +1,7 @@
 # 🕵️ Scam Email Detector
 
-This is a simple yet powerful web app built with **Streamlit** and **OpenAI GPT-4** to detect whether an email is potentially a scam.
+This is a simple yet powerful web app built with **Streamlit** and **OpenAI GPT-4** to detect whether an email is potentially a scam. You can access this app through this link: 
+https://scam-email-detector.streamlit.app
 
 ---
 
